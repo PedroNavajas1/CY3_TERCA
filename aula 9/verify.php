@@ -9,7 +9,7 @@ session_start();
 if (isset($_SESSION['user']))
 {
     $user_name = $_SESSION['user'];
-    header('Location: painel.php');
+    header('Location: .../painel.php');
 }
 else
 {
@@ -19,7 +19,7 @@ else
         $index_pass_user = $_POST['password'];
 
         // QUERY PARA TRAZER O USUÁRIO E SENHA CORRETOS
-        $sql_code = "SELECT * FROM users WHERE '$index_name_user' = user AND '$index_pass_user' = password";
+        $sql_code = "SELECT * FROM users WHERE user = '$index_name_user'  AND password = '$index_pass_user'";
 
         // EXECUTANDO QUERY
         $sql_query = $mysqli->query($sql_code);

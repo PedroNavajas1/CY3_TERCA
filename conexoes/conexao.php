@@ -64,5 +64,5 @@ if(!$tabela_produtos_existe){
     }
 }
 
-$mysqli->close();
+
 ?>
