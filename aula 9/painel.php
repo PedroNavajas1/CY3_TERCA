@@ -12,7 +12,7 @@
 <body>
     <div>
         <h1>Lista de desejos</h1>
-        <form action="lista.php" method="post">
+        <form action="TESTE.php" method="post">
         <div>
             <div>
                 <label for="nome">Nome do produto</label>

@@ -24,19 +24,26 @@ $resultado = $mysqli ->query($sql);
 
             </tr>
 
-            <?php
+            <?php  
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    $nome = $_POST['nome'];
+
+    $sql = "INSERT INTO produtos(id,nome)VALUES('$id', '$nome')";
+    if($mysqli ->query($sql) == TRUE) {
+        header('Location: teste.php');
+        echo $id, $nome;
+        exit();
+    }
+    else {
+        echo 'sou uma farsa ;-;' . $mysqli->error;
+    }
+
+    $mysqli->close();
+}
             
-
-            if($mysqli ->query($sql) == TRUE) {
-                    header('Location: lista.php');
-            exit();
-            }
-            else {
-                echo 'sou uma farsa ;-;' . $mysqli->error;
-            }
-
             ?>
-            
         </table>
     </div>
 </body>
