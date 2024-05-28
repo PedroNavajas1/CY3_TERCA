@@ -20,30 +20,28 @@ $resultado = $mysqli ->query($sql);
         <table>
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
+                <th>NOME</th>
 
             </tr>
 
-            <?php  
+            <?php 
+                        if($resultado->num_rows > 0){
+                            while($row = $resultado->fetch_assoc()){
+                                echo "<tr>";
+                                echo "<td>".$row['id'] . '</td>';
+                                echo "<td>".$row['nome'] . '</td>';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    $nome = $_POST['nome'];
-
-    $sql = "INSERT INTO produtos(id,nome)VALUES('$id', '$nome')";
-    if($mysqli ->query($sql) == TRUE) {
-        header('Location: teste.php');
-        echo $id, $nome;
-        exit();
-    }
-    else {
-        echo 'sou uma farsa ;-;' . $mysqli->error;
-    }
-
-    $mysqli->close();
-}
+                                echo '<td><a href="editar_produto.php?id=' . $row['id'] . '">Editar</a> | <a href="deletar_produto.php?id=' . $row['id'] . '">Deletar</a></td>';
+                                echo '</tr>';
+                                
+                            }
+                        }
             
-            ?>
+                            else {
+                                echo '<tr><td colspan="4"> Nenhum produto</td></tr>';
+                            }
+        ?> 
+ 
         </table>
     </div>
 </body>

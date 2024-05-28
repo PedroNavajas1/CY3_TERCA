@@ -12,7 +12,7 @@
 <body>
     <div>
         <h1>Lista de desejos</h1>
-        <form action="TESTE.php" method="post">
+        <form action="" method="post">
         <div>
             <div>
                 <label for="nome">Nome do produto</label>
@@ -37,13 +37,11 @@
 
     $sql = "INSERT INTO produtos(id,nome)VALUES(NULL, '$nome')";
     if($mysqli ->query($sql) == TRUE) {
-        header('Location: painel.php');
+        header('Location: teste.php');
         exit();
     }
     else {
         echo 'sou uma farsa ;-;' . $mysqli->error;
     }
-
-    $mysqli->close();
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-include ("../conexao/conexao.php");
+include ("../conexoes/conexao.php");
 
 if (isset($_GET['id'])){
 
@@ -10,7 +10,7 @@ if (isset($_GET['id'])){
 }
 
     if ($mysqli->query($sql) === TRUE){
-        header("Location: lista_produtos.php");
+        header("Location: teste.php");
         exit();
     }
     else{
